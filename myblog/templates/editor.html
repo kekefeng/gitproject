@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>Simple example - Editor.md examples</title>
+        <link rel="stylesheet" href="{% static 'examples/css/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/editormd.css' %}" />
+        <link rel="stylesheet" href="{% static 'other/editor.css' %}" />
+        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <div id="layout">
+            <header class="flex">
+                <div id="titlebox" style="width:100%">
+                    <input id="title" maxlength="100" placeholder="输入文章标题" value="{{ title }}">
+                </div>
+                <div class="article_type">
+                    <div>
+                        <label>文章类型:</label>
+                    </div>
+                    <div class="type_box">
+                            <select class="textfield" id="types">
+                                <option value="0" selected="selected">请选择</option> 
+                                <option value="original">原创</option> 
+                                <option value="repost">转载</option> 
+                                <option value="translated">翻译</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="flex"><button class="but">发布文章</button></div>
+            </header>
+            <span class="article_id">{{ article_id }}</span>
+            <div class="tags flex">
+                <label>文章标签:</label>
+                <input names="tags" type="text" id="tags-input" value="{{ tag }}">
+                <dl class="common-tags flex">
+                    <dt>常用标签:</dt>
+                    <dd class="flex">
+                        {% for tag in tags %}
+                        <span class="single-tag">{{ tag.tag }}</span>
+                        {% endfor %}
+                    </dd>
+                </dl>
+            </div>
+            <div id="test-editormd">
+                <textarea id="content" style="display:none;">{{ content }}</textarea>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="{% static 'editormd.min.js' %}"></script>
+        <script src="{% static 'other/common.js' %}"></script>
+        <script type="text/javascript">
+			var testEditor;
+
+            $(function() {
+                testEditor = editormd("test-editormd", {
+                    width   : "90%",
+                    height  : 640,
+                    syncScrolling : "single",
+                    path    : "/static/lib/"
+                });
+                
+                /*
+                // or
+                testEditor = editormd({
+                    id      : "test-editormd",
+                    width   : "90%",
+                    height  : 640,
+                    path    : "../lib/"
+                });
+                */
+            });
+        </script>
+    </body>
+</html>

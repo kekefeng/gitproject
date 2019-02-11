@@ -1,0 +1,249 @@
+BL51 BANKED LINKER/LOCATER V6.05                                                        01/29/2017  19:24:23  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.05, INVOKED BY:
+E:\\C51\BIN\BL51.EXE myOS.obj TO myOS RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  myOS.obj (MYOS)
+  E:\\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\\C51\LIB\C51S.LIB (?C?COPY)
+  E:\\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  myOS (MYOS)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0048H     UNIT         _DATA_GROUP_
+            IDATA   0050H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     010FH     UNIT         ?C?LIB_CODE
+            CODE    0112H     0072H     UNIT         ?PR?MAIN?MYOS
+            CODE    0184H     0044H     UNIT         ?CO?MYOS
+            CODE    01C8H     003DH     UNIT         ?PR?_LCD1602_DIS_STR?MYOS
+            CODE    0205H     001EH     UNIT         ?PR?_DELAY?MYOS
+            CODE    0223H     0017H     UNIT         ?PR?_LCD1602_DIS_ONECHAR?MYOS
+            CODE    023AH     0014H     UNIT         ?PR?INIT_LCD1602?MYOS
+            CODE    024EH     0012H     UNIT         ?PR?READ_BUSY?MYOS
+            CODE    0260H     0010H     UNIT         ?PR?_LCD1602_WRITE_CMD?MYOS
+            CODE    0270H     0010H     UNIT         ?PR?_LCD1602_WRITE_DAT?MYOS
+            CODE    0280H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   myOS (MYOS)
+
+
+SEGMENT                                 DATA_GROUP 
+  +--> CALLED SEGMENT                 START    LENGTH
+-----------------------------------------------------
+?C_C51STARTUP                         -----    -----
+  +--> ?PR?MAIN?MYOS
+
+?PR?MAIN?MYOS                         0008H    0045H
+  +--> ?CO?MYOS
+  +--> ?PR?INIT_LCD1602?MYOS
+  +--> ?PR?_LCD1602_DIS_STR?MYOS
+  +--> ?PR?_DELAY?MYOS
+  +--> ?PR?_LCD1602_WRITE_CMD?MYOS
+
+?PR?INIT_LCD1602?MYOS                 -----    -----
+BL51 BANKED LINKER/LOCATER V6.05                                                      01/29/2017  19:24:23  PAGE 2
+
+
+  +--> ?PR?_LCD1602_WRITE_CMD?MYOS
+
+?PR?_LCD1602_WRITE_CMD?MYOS           -----    -----
+  +--> ?PR?READ_BUSY?MYOS
+
+?PR?_LCD1602_DIS_STR?MYOS             004DH    0003H
+  +--> ?PR?_LCD1602_WRITE_CMD?MYOS
+  +--> ?PR?_LCD1602_WRITE_DAT?MYOS
+
+?PR?_LCD1602_WRITE_DAT?MYOS           -----    -----
+  +--> ?PR?READ_BUSY?MYOS
+
+
+
+SYMBOL TABLE OF MODULE:  myOS (MYOS)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MYOS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:0260H         PUBLIC        _LCD1602_Write_Cmd
+  D:00B0H         PUBLIC        P3
+  C:024EH         PUBLIC        Read_Busy
+  C:0270H         PUBLIC        _LCD1602_Write_Dat
+  D:00A8H         PUBLIC        IE
+  C:0205H         PUBLIC        _delay
+  B:00B0H.4       PUBLIC        LCD1602_EN
+  C:023AH         PUBLIC        Init_LCD1602
+  B:00A0H.6       PUBLIC        DU
+  D:00B8H         PUBLIC        IP
+  B:00A0H.7       PUBLIC        WE
+  B:00B0H.5       PUBLIC        LCD1602_RS
+  C:0223H         PUBLIC        _LCD1602_Dis_OneChar
+  C:0112H         PUBLIC        main
+  B:00B0H.6       PUBLIC        LCD1602_RW
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:01D4H         PUBLIC        _LCD1602_Dis_Str
+  C:0184H         SYMBOL        _?ix1000
+  B:00B0H.0       PUBLIC        key_s2
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          READ_BUSY
+  -------         DO            
+  D:0007H         SYMBOL        busy
+  -------         ENDDO         
+  C:024EH         LINE#         23
+  C:024EH         LINE#         24
+  C:024EH         LINE#         26
+  C:0251H         LINE#         27
+  C:0253H         LINE#         28
+  C:0255H         LINE#         30
+  C:0255H         LINE#         31
+BL51 BANKED LINKER/LOCATER V6.05                                                      01/29/2017  19:24:23  PAGE 3
+
+
+  C:0257H         LINE#         32
+  C:0259H         LINE#         33
+  C:025BH         LINE#         34
+  C:025FH         LINE#         35
+  -------         ENDPROC       READ_BUSY
+  -------         PROC          _LCD1602_WRITE_CMD
+  D:0006H         SYMBOL        cmd
+  C:0260H         LINE#         42
+  C:0262H         LINE#         43
+  C:0262H         LINE#         44
+  C:0265H         LINE#         45
+  C:0267H         LINE#         46
+  C:0269H         LINE#         47
+  C:026BH         LINE#         48
+  C:026DH         LINE#         49
+  C:026FH         LINE#         50
+  -------         ENDPROC       _LCD1602_WRITE_CMD
+  -------         PROC          _LCD1602_WRITE_DAT
+  D:0006H         SYMBOL        dat
+  C:0270H         LINE#         57
+  C:0272H         LINE#         58
+  C:0272H         LINE#         59
+  C:0275H         LINE#         60
+  C:0277H         LINE#         61
+  C:0279H         LINE#         62
+  C:027BH         LINE#         63
+  C:027DH         LINE#         64
+  C:027FH         LINE#         65
+  -------         ENDPROC       _LCD1602_WRITE_DAT
+  -------         PROC          _LCD1602_DIS_ONECHAR
+  D:0006H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  D:0004H         SYMBOL        dat
+  C:0223H         LINE#         73
+  C:0227H         LINE#         74
+  C:0227H         LINE#         75
+  C:022DH         LINE#         76
+  C:0230H         LINE#         77
+  C:0235H         LINE#         78
+  -------         ENDPROC       _LCD1602_DIS_ONECHAR
+  -------         PROC          L?0033
+  -------         ENDPROC       L?0033
+  -------         PROC          _LCD1602_DIS_STR
+  D:0007H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  D:004DH         SYMBOL        str
+  C:01D4H         LINE#         87
+  C:01DAH         LINE#         88
+  C:01DAH         LINE#         89
+  C:01E0H         LINE#         90
+  C:01E3H         LINE#         91
+  C:01E6H         LINE#         92
+  C:01F1H         LINE#         93
+  C:01F1H         LINE#         94
+  C:0202H         LINE#         95
+  C:0204H         LINE#         96
+  -------         ENDPROC       _LCD1602_DIS_STR
+BL51 BANKED LINKER/LOCATER V6.05                                                      01/29/2017  19:24:23  PAGE 4
+
+
+  -------         PROC          INIT_LCD1602
+  C:023AH         LINE#         102
+  C:023AH         LINE#         103
+  C:023AH         LINE#         104
+  C:023FH         LINE#         105
+  C:0244H         LINE#         106
+  C:0249H         LINE#         107
+  -------         ENDPROC       INIT_LCD1602
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        z
+  -------         DO            
+  D:0006H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  -------         ENDDO         
+  C:0205H         LINE#         110
+  C:0205H         LINE#         111
+  C:0205H         LINE#         113
+  C:020EH         LINE#         114
+  C:0222H         LINE#         115
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        TestStr
+  D:004CH         SYMBOL        i
+  -------         ENDDO         
+  C:0112H         LINE#         117
+  C:0112H         LINE#         118
+  C:0112H         LINE#         119
+  C:0125H         LINE#         120
+  C:0128H         LINE#         121
+  C:012AH         LINE#         122
+  C:012CH         LINE#         123
+  C:012FH         LINE#         124
+  C:0137H         LINE#         125
+  C:0148H         LINE#         127
+  C:0148H         LINE#         128
+  C:014BH         LINE#         129
+  C:014BH         LINE#         130
+  C:0152H         LINE#         131
+  C:0155H         LINE#         132
+  C:0155H         LINE#         133
+  C:015AH         LINE#         134
+  C:015FH         LINE#         135
+  C:016EH         LINE#         136
+  C:017FH         LINE#         137
+  C:017FH         LINE#         138
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MYOS
+
+  -------         MODULE        ?C?COPY
+  C:00D3H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?CLDPTR
+  C:00F9H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+BL51 BANKED LINKER/LOCATER V6.05                                                      01/29/2017  19:24:23  PAGE 5
+
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+
+Program Size: data=81.0 xdata=0 code=652
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

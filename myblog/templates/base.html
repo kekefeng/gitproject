@@ -1,0 +1,145 @@
+{% load static %}
+<!doctype html>
+
+<html lang="zh-cn">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'other/codestyle.css' %}">
+    <link rel="stylesheet" href="{% static 'other/common.css' %}">
+    <link rel="stylesheet" href="{% static 'other/list.css' %}">
+    {% if article.title %}
+    <title>{{article.title}}</title>
+    {% else %}
+    <title>Hello, world!</title>
+    {% endif %}
+
+  </head>
+
+  <body>
+    <div class="container">
+
+        <div class="row  justify-content-center">
+            <div class="col-sm-8 navbox">
+                <ul class="nav">
+                    <li class="nav-item"> <a class="nav-link active" href="#">首页</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">原创文章</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">转载文章</a> </li>
+                    <li class="nav-item"> <a class="nav-link disabled" href="#">辐射4专题</a> </li>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <span class="hello">hello,{{ user.username }}</span>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link exitlog" href="/logout">退出</a>
+                        </li>
+                    {% endif %}
+                        <li class="nav-item"> <a class="nav-link newarticle" href="/editor/0">写新文章</a> </li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <form method="get" id="searchform" class="form-inline clearfix" action="{% url 'search' %}">
+                <input class="form-control" name="search" id="s" placeholder="搜索关键词..." type="text">
+                <button class="btn btn-green btn-small"><i class="fa fa-search"></i> 查找</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            <div class="col-sm-4">
+                    <div class="information flex">     
+                        <div class="touxiang"><img src="{% static 'other/hulitou.png' %}" style="border-radius:50%;">
+                        </div>
+                        <div class="touxiangright flex">
+                            <div class="zuoyouming">莫逐有缘，勿住空忍。<br>一种平怀，泯然自尽。</div>
+                            <div class="jumpout">
+                                <div class="contactme">
+                                    <span>联系我:</span>
+                                    <a class="weixin" href="javascript:">
+                                        <img class="qrcode wechatheight" src="{% static 'other/weixinerweima.jpeg' %}" alt="微信二维码">
+                                        <img src="{% static 'other/weixin.jpeg' %}" alt="" class="weixinlogo">
+                                    </a>
+                                    <a class="qq" href="javascript:">
+                                        <img class="qrcode qqheight" src="{% static 'other/QQerweima.jpeg' %}" alt="微信二维码">
+                                        <img src="{% static 'other/qq.jpeg' %}" alt="" class="qqlogo">
+                                    </a>
+                                </div>
+                            </div> 
+
+                        </div>
+                        
+                    </div>
+
+                    
+                <hr>
+            <div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">最新文章</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">最新评论</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">浏览最多</a>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <ul class="list-group">
+                                {% for hot in hots %}
+                                    <li style="color:black;">
+                                        <a href="article/{{ hot.id }}" class="list-group-item clearfix" target="_blank">
+                                            {{ hot.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                          </div>
+            </div>
+
+
+
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+
+            <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style ">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dbf68e662d4db6c"></script>
+        <!-- AddThis Button END -->
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="{% static 'other/common.js' %}"></script>
+    </body>
+</html>

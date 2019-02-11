@@ -1,0 +1,204 @@
+C51 COMPILER V8.08   SHUMAGUAN                                                             12/13/2016 09:37:58 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE SHUMAGUAN
+OBJECT MODULE PLACED IN shumaguan.OBJ
+COMPILER INVOKED BY: E:\C51\BIN\C51.EXE shumaguan.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define uchar unsigned char
+   3          #define uint unsigned int
+   4          sbit we = P2^7; //数码管位选
+   5          sbit du = P2^6; //数码管段选
+   6          sbit S2 = P3^0;//S2按键位定义
+   7          sbit S3 = P3^1;
+   8          sbit S4 = P3^2;
+   9          sbit beep = P2^3; //蜂鸣器
+  10          
+  11          uchar code leddata[]={ 
+  12           
+  13                          0x3F,  //"0"
+  14                          0x06,  //"1"
+  15                          0x5B,  //"2"
+  16                          0x4F,  //"3"
+  17                          0x66,  //"4"
+  18                          0x6D,  //"5"
+  19                          0x7D,  //"6"
+  20                          0x07,  //"7"
+  21                          0x7F,  //"8"
+  22                          0x6F,  //"9"
+  23                          0x77,  //"A"
+  24                          0x7C,  //"B"
+  25                          0x39,  //"C"
+  26                          0x5E,  //"D"
+  27                          0x79,  //"E"
+  28                          0x71,  //"F"
+  29                          0x76,  //"H"
+  30                          0x38,  //"L"
+  31                          0x37,  //"n"
+  32                          0x3E,  //"u"
+  33                          0x73,  //"P"
+  34                          0x5C,  //"o"
+  35                          0x40,  //"-"
+  36                          0x00,  //熄灭
+  37                          0x00  //自定义
+  38           
+  39                                   };
+  40          
+  41          void delay(uint z)
+  42          {
+  43   1              uint x,y;
+  44   1              for(x = z; x > 0; x--)
+  45   1                      for(y = 114; y > 0 ; y--);
+  46   1      }
+  47          
+  48          void display(uchar min,uchar sec)
+  49          {
+  50   1              uchar min_shi = min / 10;
+  51   1              uchar min_ge = min % 10;
+  52   1              uchar sec_shi = sec / 10; //显示百位
+  53   1              uchar sec_ge = sec % 10;        //显示十位
+  54   1      //      ge  = i % 10;//显示个位
+  55   1      
+C51 COMPILER V8.08   SHUMAGUAN                                                             12/13/2016 09:37:58 PAGE 2   
+
+  56   1              P0 = 0xff; //清除断码
+  57   1              we = 1;//打开位选
+  58   1              P0 = 0xdf;//1101 1111 
+  59   1              we = 0; //关闭位选
+  60   1      
+  61   1              du = 1; //打开段选
+  62   1              P0 = leddata[min_ge] + 0x80;
+  63   1              du = 0; //关闭段选
+  64   1              delay(5);//延时5毫秒
+  65   1      
+  66   1              P0 = 0xff; //清除断码
+  67   1              we = 1;//打开位选
+  68   1              P0 = 0xef;//1110 1111 
+  69   1              we = 0; //关闭位选
+  70   1      
+  71   1              du = 1; //打开段选
+  72   1              P0 = leddata[min_shi];
+  73   1              du = 0; //关闭段选
+  74   1              delay(5);//延时5毫秒
+  75   1              
+  76   1              P0 = 0xff;//清除断码
+  77   1              we = 1; //打开位选
+  78   1              P0 = 0xbf;//1011 1111  
+  79   1              we = 0; //关闭位选
+  80   1              
+  81   1              du = 1;//打开段选
+  82   1              P0 = leddata[sec_shi]; 
+  83   1              du = 0; //关闭段选
+  84   1              delay(5);//延时5毫秒
+  85   1              
+  86   1              P0 = 0xff;//清除断码
+  87   1              we = 1; //打开位选
+  88   1              P0 = 0x7f;// 0111 1111
+  89   1              we = 0; //关闭位选
+  90   1              
+  91   1              du = 1;//打开段选
+  92   1              P0 = leddata[sec_ge]; 
+  93   1              du = 0; //关闭段选
+  94   1              delay(5);//延时5毫秒    
+  95   1      }
+  96          
+  97          void main()
+  98          {
+  99   1              char sec,min,a;
+ 100   1      
+ 101   1              TMOD = 0x10;
+ 102   1              TL1 = 0xFD ;
+ 103   1              TH1 = 0x4B ;//设置初始计时
+ 104   1      
+ 105   1              while(1)
+ 106   1              {
+ 107   2                      if(S3 == 0)//判断S2是否按键
+ 108   2                      {
+ 109   3                              delay(5);//软件延时
+ 110   3                              if(S3 == 0)
+ 111   3                              {
+ 112   4                                      TR1 = 0;
+ 113   4                                      min++; //计数加1
+ 114   4                              }
+ 115   3                              while(!S3) display(min,sec);//当wihle停在这边的时候，数码管依然显示是因为段锁存器du=0，依靠锁存器存的信
+             -息来显示
+ 116   3      
+C51 COMPILER V8.08   SHUMAGUAN                                                             12/13/2016 09:37:58 PAGE 3   
+
+ 117   3                              if(min == 10) //当数值为超过9时归零
+ 118   3                              {
+ 119   4                                      min = 0;
+ 120   4                              }
+ 121   3                      }
+ 122   2      
+ 123   2                      if(S4 == 0)//判断S2是否按键
+ 124   2                      {
+ 125   3                              delay(5);//软件延时
+ 126   3                              if(S4 == 0)
+ 127   3                              {               
+ 128   4                                      TR1 = 0;
+ 129   4                                      sec += 10; //计数加10
+ 130   4                              }
+ 131   3                              while(!S4) display(min,sec);//当wihle停在这边的时候，数码管依然显示是因为段锁存器du=0，依靠锁存器存的信
+             -息来显示
+ 132   3      
+ 133   3                              if(sec > 60){
+ 134   4                                      sec -= 60;
+ 135   4                                      min++;
+ 136   4                              }
+ 137   3                      }
+ 138   2      
+ 139   2                      if(S2 == 0){
+ 140   3                              delay(5);//软件延时
+ 141   3                              if(S2 == 0){                    
+ 142   4                                      TR1 = 1; //开启计时器
+ 143   4                              }
+ 144   3                              while(!S2);
+ 145   3                      }
+ 146   2      
+ 147   2                      if(TF1 == 1){
+ 148   3                              TF1 = 0;
+ 149   3                              TL1 = 0xFD ;
+ 150   3                              TH1 = 0x4B ;
+ 151   3                              a++;
+ 152   3                              
+ 153   3                              if(a == 20){  //1秒
+ 154   4                                      a = 0;
+ 155   4                                      sec --;
+ 156   4                                      
+ 157   4                                      if(sec < 0){
+ 158   5                                              if(min == 0){
+ 159   6                                                      beep = 0;
+ 160   6                                                      while(1){
+ 161   7                                                              display(0,0);
+ 162   7                                                      };
+ 163   6                                              }else{
+ 164   6                                                      min --;
+ 165   6                                                      sec = 59;
+ 166   6                                              }
+ 167   5                                      }
+ 168   4                              }       
+ 169   3                      }
+ 170   2      
+ 171   2                      display(min,sec);                       
+ 172   2              }
+ 173   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    304    ----
+C51 COMPILER V8.08   SHUMAGUAN                                                             12/13/2016 09:37:58 PAGE 4   
+
+   CONSTANT SIZE    =     25    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

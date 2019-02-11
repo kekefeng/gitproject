@@ -1,0 +1,85 @@
+<html>
+ <head></head>
+ <body>
+  <div class="modal__inner-2">
+   <button class="modal__close-button button not-tabbable" title="关闭" aria-label="关闭">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon">
+     <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path>
+    </svg></button> 
+   <div class="modal__content">
+    <h3>发布文章</h3> 
+    <div class="form-entry flex form-tag-box">
+     <label class="form-entry__label">文章标签：</label> 
+     <div class="form-entry__field">
+      <div class="tag__box">
+       <input type="hidden" name="tags" /> 
+       <div class="flex-box">
+        <div id="tagList" class="tag__item-list"> 
+         <button class="tag__btn-tag">
+          <svg viewbox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="icon">
+           <path d="M512 938.816C276.288 938.816 85.184 747.754667 85.184 512 85.184 276.288 276.288 85.184 512 85.184c235.733333 0 426.816 191.104 426.816 426.816 0 235.754667-191.082667 426.816-426.816 426.816z m0-85.354667c188.544 0 341.461333-152.853333 341.461333-341.461333 0-188.565333-152.917333-341.44-341.461333-341.44-188.586667 0-341.461333 152.874667-341.461333 341.44 0 188.608 152.874667 341.461333 341.461333 341.461333z m-42.709333-384.149333v-128.042667a42.688 42.688 0 0 1 85.376 0v128.042667h128.064a42.709333 42.709333 0 0 1 0 85.376H554.666667v128.042667a42.666667 42.666667 0 0 1-85.376 0v-128.042667h-128.021334a42.688 42.688 0 0 1 0-85.376h128.021334z"></path>
+          </svg> 添加标签 </button>
+        </div>
+       </div> 
+       <p class="notice-txt">最多添加5个标签</p> 
+       <!---->
+      </div>
+     </div>
+    </div> 
+    <div class="form-entry flex form-tag-box">
+     <label class="form-entry__label">个人分类：</label> 
+     <div class="form-entry__field">
+      <div class="tag__box">
+       <input type="hidden" name="categories" /> 
+       <div class="flex-box">
+        <div id="tagList" class="tag__item-list"> 
+         <button class="tag__btn-tag">
+          <svg viewbox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="icon">
+           <path d="M512 938.816C276.288 938.816 85.184 747.754667 85.184 512 85.184 276.288 276.288 85.184 512 85.184c235.733333 0 426.816 191.104 426.816 426.816 0 235.754667-191.082667 426.816-426.816 426.816z m0-85.354667c188.544 0 341.461333-152.853333 341.461333-341.461333 0-188.565333-152.917333-341.44-341.461333-341.44-188.586667 0-341.461333 152.874667-341.461333 341.44 0 188.608 152.874667 341.461333 341.461333 341.461333z m-42.709333-384.149333v-128.042667a42.688 42.688 0 0 1 85.376 0v128.042667h128.064a42.709333 42.709333 0 0 1 0 85.376H554.666667v128.042667a42.666667 42.666667 0 0 1-85.376 0v-128.042667h-128.021334a42.688 42.688 0 0 1 0-85.376h128.021334z"></path>
+          </svg> 添加新分类 </button>
+        </div>
+       </div> 
+       <p class="notice-txt"></p> 
+       <!---->
+      </div>
+     </div>
+    </div> 
+    <div class="inline-box">
+     <div class="form-entry flex">
+      <label for="6nlEEJ7w5ESbcltV" class="form-entry__label">文章类型：
+       <!----></label> 
+      <div class="form-entry__field">
+       <select class="textfield" id="6nlEEJ7w5ESbcltV"><option value="0" selected="selected">请选择</option> <option value="original">原创</option> <option value="repost">转载</option> <option value="translated">翻译</option></select>
+      </div> 
+      <span class="notice">*必填项</span>
+     </div> 
+     <div class="form-entry flex">
+      <label for="4dg2ntyjvcmAOKHo" class="form-entry__label">博客分类：
+       <!----></label> 
+      <div class="form-entry__field">
+       <select class="textfield" id="4dg2ntyjvcmAOKHo"><option value="0" selected="selected">选择分类</option> <option value="28"> 人工智能 </option><option value="1"> 移动开发 </option><option value="29"> 物联网 </option><option value="15"> 架构 </option><option value="2"> 云计算/大数据 </option><option value="17"> 互联网 </option><option value="30"> 游戏开发 </option><option value="12"> 运维 </option><option value="6"> 数据库 </option><option value="14"> 前端 </option><option value="31"> 后端 </option><option value="16"> 编程语言 </option><option value="3"> 研发管理 </option><option value="32"> 安全 </option><option value="33"> 程序人生 </option><option value="34"> 区块链 </option><option value="35"> 音视频开发 </option><option value="36"> 资讯 </option><option value="37"> 计算机理论与基础 </option></select>
+      </div> 
+      <span class="notice">*必填项</span>
+     </div>
+    </div> 
+    <div class="form-entry flex form-entry__field-switch-box">
+     <label for="IJ73q0TaEfUXwrcB" class="form-entry__label">私密文章：
+      <!----></label> 
+     <div class="form-entry__field">
+      <div class="switch-box">
+       <input type="checkbox" id="chkIsHasNotify" class="form-control form-control-sm chk-switch" /> 
+       <label for="chkIsHasNotify" class="lab-switch"></label> 
+       <span class="ipt-remark chk-false">公开</span> 
+       <span class="ipt-remark chk-true">已设置成私密</span>
+      </div>
+     </div> 
+    </div>
+   </div> 
+   <div class="modal__button-bar">
+    <button class="button">取消</button> 
+    <button class="button">保存为草稿</button> 
+    <button class="button btn-c-blue">发布文章</button>
+   </div>
+  </div>
+ </body>
+</html>

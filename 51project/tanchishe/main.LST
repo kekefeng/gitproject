@@ -1,0 +1,306 @@
+C51 COMPILER V8.08   MAIN                                                                  01/31/2017 23:31:00 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "main.h"
+   2          //¶¨Òå±äÁ¿
+   3          typedef unsigned int uint;
+   4          typedef unsigned char uchar;
+   5          
+   6          uchar temp = 0xfe;
+   7          uchar KEY_NUM = 0;
+   8          
+   9          //Keil C51ÎŞ·¨Ö±½ÓÊ¹ÓÃ¶ş½øÖÆÊı
+  10          //uchar colselect[]={01111111};//,10111111),b(11011111),b(11101111),b(11110111),b(11111011),b(11111101),b(
+             -11111110)};
+  11          
+  12          uchar colselect[]={0x7f,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0xfe};
+  13          
+  14          sbit IR  = P3^2;     //¶¨ÒåºìÍâÂö³åÊı¾İ½Ó¿Ú     Íâ²¿ÖĞ¶ÏOÊäÈë¿Ú
+  15          
+  16          uchar IRtime;     //´¢´æ¼ì²âºìÍâ¸ßµÍµçÆ½³ÖĞøÊ±¼ä
+  17          uchar IRcord[4];  //´¢´æ½âÂëºóµÄ4¸ö×Ö½ÚÊı¾İ
+  18          uchar IRdata[33]; //°üº¬ÆğÊ¼ÂëÔÚÄÚµÄ33Î»Êı¾İ
+  19          bit IRpro_ok;     //½âÂëºó4¸ö×Ö½ÚÊı¾İ½ÓÊÕÍê³É±êÖ¾Î»
+  20          bit IRok;                 //33Î»Êı¾İ½ÓÊÕÍê³É±êÖ¾
+  21          sbit BEEP = P2^3;
+  22          struct snake{
+  23                  uchar fangxiang;  //00 ÉÏ 01ÏÂ 10×ó 11ÓÒ
+  24                  uchar length;     //´Ó1¿ªÊ¼
+  25                  uchar position[10][2];  //Éß×î³¤ÓĞ10½Ú; 0´ú±ícol×ø±ê£¬1´ú±írow×ø±ê£»
+  26                  void (*refreshpos)(uchar direction);
+  27          }mysnake;
+  28          
+  29                  uchar food=0;
+  30                  uchar food_pos[2];
+  31           //****************************************************
+  32          //·¢ËÍÒ»¸ö×Ö½ÚÊı¾İ
+  33          //****************************************************
+  34          void Send_Byte( unsigned char dat)
+  35          {
+  36   1              unsigned char i;
+  37   1              LEDARRAY_CLK = 0;
+  38   1              _nop_();        
+  39   1              LEDARRAY_LAT = 0;
+  40   1              _nop_();
+  41   1      
+  42   1              for( i = 0 ; i < 8 ; i++ )
+  43   1              {
+  44   2                      if( dat&0x01 )
+  45   2                      {
+  46   3                              LEDARRAY_DI = 1;        
+  47   3                      }
+  48   2                      else
+  49   2                      {
+  50   3                              LEDARRAY_DI = 0;
+  51   3                      }
+  52   2                      
+  53   2                      LEDARRAY_CLK = 1;                               //ÉÏÉıÑØ·¢ËÍÊı¾İ
+  54   2                      //                              _nop_();
+C51 COMPILER V8.08   MAIN                                                                  01/31/2017 23:31:00 PAGE 2   
+
+  55   2                      LEDARRAY_CLK = 0;
+  56   2                      //                              _nop_();
+  57   2                                      
+  58   2                      dat >>= 1;                      
+  59   2              }               
+  60   1      }
+  61          
+  62           void display(uchar col,uchar row){       //×î×óÏÂ½ÇµÄ×ø±êÎª£¨1£¬1£© ÔÚµÚcolÁĞ£¬µÚrowĞĞµÄÎ»ÖÃÏÔÊ¾Ò»¸öµã
+  63   1              uchar tempcol;
+  64   1              uchar temprow;
+  65   1      
+  66   1              tempcol=colselect[col-1];
+  67   1              temprow=~colselect[row-1];
+  68   1              Send_Byte(tempcol);
+  69   1              Send_Byte(temprow);
+  70   1      
+  71   1              LEDARRAY_LAT = 1;                                       //Ëø´æÊı¾İ
+  72   1              _nop_();
+  73   1                                      
+  74   1              LEDARRAY_LAT = 0;
+  75   1              _nop_();                
+  76   1      }
+  77          
+  78          void init()        //³õÊ¼»¯¶¨Ê±Æ÷0 ºÍÍâ²¿ÖĞ¶Ï0
+  79          {
+  80   1              TMOD = 0x22; //¶¨Ê±Æ÷0ºÍ¶¨Ê±Æ÷1¹¤×÷·½Ê½2£¬8Î»×Ô¶¯ÖØ×°
+  81   1              TH0 = 0x00;  //¸ß8Î»×°Èë0ÄÇÃ´¶¨Ê±Æ÷Òç³öÒ»´ÎµÄÊ±¼äÊÇ256¸ö»úÆ÷ÖÜÆÚ
+  82   1              TL0 = 0x00;
+  83   1              EA = 1;      //×ÜÖĞ¶Ï
+  84   1              ET0 = 1;           //¶¨Ê±Æ÷0ÖĞ¶Ï
+  85   1              TR0 = 1;     //Æô¶¯¶¨Ê±Æ÷0
+  86   1      
+  87   1              IT0 = 1;           //ÉèÖÃÍâ²¿ÖĞ¶Ï0ÎªÌøÑØ´¥·¢·½Ê½£¬À´Ò»¸öÏÂ½µÑØ´¥·¢Ò»´Î
+  88   1              EX0 = 1;           //Æô¶¯Íâ²¿ÖĞ¶Ï0
+  89   1      
+  90   1      }
+  91          void time0() interrupt 1   //¶¨Òå¶¨Ê±Æ÷0
+  92          {
+  93   1              IRtime++;                          //¼ì²âÂö¿í£¬1´ÎÎª278us
+  94   1      }
+  95          
+  96          void int0() interrupt 0                 //¶¨ÒåÍâ²¿ÖĞ¶Ï0
+  97          {
+  98   1              static uchar i;                         //      ÉùÃ÷¾²Ì¬±äÁ¿£¨ÔÚÌø³öº¯ÊıºóÔÚ»ØÀ´Ö´ĞĞµÄÊ±ºò²»»á¶ªÊ§ÊıÖµ£©iÓÃÓÚ°Ñ33´Î¸ßµçÆ½µÄ³ÖĞøÊ±¼
+             -ä´æÈëIRdata
+  99   1              static bit startflag;           //¿ªÊ¼´¢´æÂö¿í±êÖ¾Î»
+ 100   1              if(startflag)                           //¿ªÊ¼½ÓÊÕÂö¿í¼ì²â
+ 101   1              {
+ 102   2                      if( (IRtime < 53) && (IRtime >= 32) ) /*ÅĞ¶ÏÊÇ·ñÊÇÒıµ¼Âë£¬µ×µçÆ½9000us+¸ß4500us 
+ 103   2                      Õâ¸ö×Ô¼º¿ÉÒÔËãÎÒÒÔ11.0592À´ËãÁËNECĞ­ÒéµÄÒıµ¼ÂëµÍ8000-10000+¸ß4000-5000 
+ 104   2                      Èç¹ûÒÑ¾­½ÓÊÕÁËÒıµ¼ÂëÄÇÃ´i²»»á±»ÖÃ0¾Í»á¿ªÊ¼ÒÀ´Î´æÈëÂö¿í*/
+ 105   2                              i = 0;                           //Èç¹ûÊÇÒıµ¼ÂëÄÇÃ´Ö´ĞĞi=0°ÑËû´æµ½IRdataµÄµÚÒ»¸öÎ»
+ 106   2                      IRdata[i] = IRtime;              //ÒÔT0µÄÒç³ö´ÎÊıÀ´¼ÆËãÂö¿í£¬°ÑÕâ¸öÊ±¼ä´æµ½Êı×éÀïÃæµ½ºóÃæÅĞ¶Ï
+ 107   2                      IRtime = 0;                              //¼ÆÊıÇåÁã£¬ÏÂÒ»¸öÏÂ½µÑØµÄÊ±ºòÔÚ´æÈëÂö¿í
+ 108   2                      i++;                                     //¼ÆÊıÂö¿í´æÈëµÄ´ÎÊı
+ 109   2                      if(i == 33)                              //Èç¹û´æÈë34´Î Êı×éµÄÏÂ±êÊÇ´Ó0¿ªÊ¼iµÈÓÚ33±íÊ¾Ö´ĞĞÁË34´Î
+ 110   2                      {
+ 111   3                              IRok = 1;                                //ÄÇÃ´±íÊ¾Âö¿í¼ì²âÍê±Ï
+ 112   3                              i = 0;                           //°ÑÂö¿í¼ÆÊıÇåÁã×¼±¸ÏÂ´Î´æÈë
+ 113   3                      }
+ 114   2              }
+ 115   1              else              
+C51 COMPILER V8.08   MAIN                                                                  01/31/2017 23:31:00 PAGE 3   
+
+ 116   1              {
+ 117   2                      IRtime = 0;                              //Òıµ¼Âë¿ªÊ¼½øÈë°ÑÂö¿í¼ÆÊıÇåÁã¿ªÊ¼¼ÆÊı
+ 118   2                      startflag = 1;                   //¿ªÊ¼´¦Àí±êÖ¾Î»ÖÃ1
+ 119   2              }
+ 120   1      }
+ 121          
+ 122          
+ 123          void IRcordpro()                                 //ÌáÈ¡ËüµÄ33´ÎÂö¿í½øĞĞÊı¾İ½âÂë
+ 124          {
+ 125   1              uchar i, j, k, cord, value;     /*iÓÃÓÚ´¦Àí4¸ö×Ö½Ú£¬jÓÃÓÚ´¦ÀíÒ»¸ö×Ö½ÚÖĞÃ¿Ò»Î»£¬kÓÃÓÚ33´ÎÂö¿íÖĞµÄÄÄÒ»Î»
+ 126   1              cordÓÃÓÚÈ¡³öÂö¿íµÄÊ±¼äÅĞ¶ÏÊÇ·ñ·ûºÏ1µÄÂö¿íÊ±¼ä*/
+ 127   1              k = 1;                                          //´ÓµÚÒ»Î»Âö¿í¿ªÊ¼È¡£¬¶ªÆúÒıµ¼ÂëÂö¿í
+ 128   1              for(i = 0; i < 4; i++)
+ 129   1              {
+ 130   2                      for(j = 0; j < 8; j++)
+ 131   2                      {
+ 132   3                              cord = IRdata[k];           //°ÑÂö¿í´æÈëcord
+ 133   3                              if(cord > 5)                    //Èç¹ûÂö¿í´óÓÚÎÒ11.0592µÄt0Òç³öÂÊÎªÔ¼278us*5=1390ÄÇÃ´ÅĞ¶ÏÎª1
+ 134   3                              value = value | 0x80;   /*½ÓÊÕµÄÊ±ºòÊÇÏÈ½ÓÊÕ×îµÍÎ»£¬
+ 135   3                              °Ñ×îµÍÎ»ÏÈ·Åµ½valueµÄ×î¸ßÎ»ÔÚºÍ0x08°´Î»»òÒ»ÏÂ
+ 136   3                              ÕâÑù²»»á¸Ä±ävaluaµÄÆäËûÎ»µÄÊıÖµÖ»»áÈÃËû×î¸ßÎ»Îª1*/
+ 137   3                              if(j < 7)
+ 138   3                              {
+ 139   4                                      value = value >> 1;     //valueÎ»×óÒÆÒÀ´Î½ÓÊÕ8Î»Êı¾İ¡£
+ 140   4                              }
+ 141   3                              k++;                            //Ã¿Ö´ĞĞÒ»´ÎÂö¿íÎ»¼Ó1
+ 142   3                      }
+ 143   2                      IRcord[i] = value;         //Ã¿´¦ÀíÍêÒ»¸ö×Ö½Ú°ÑËü·ÅÈëIRcordÊı×éÖĞ¡£
+ 144   2                      value = 0;                         //ÇåÁãvalue·½±ãÏÂ´ÎÔÚ´æÈëÊı¾İ
+ 145   2              }
+ 146   1              IRpro_ok = 1;                              //½ÓÊÕÍê4¸ö×Ö½ÚºóIRpro okÖÃ1±íÊ¾ºìÍâ½âÂëÍê³É 
+ 147   1      }
+ 148          
+ 149          void delay()
+ 150          {
+ 151   1              uchar k;
+ 152   1              uint i=0;
+ 153   1              P1=0xfd;
+ 154   1              while(1){
+ 155   2                              for(k=0;k<mysnake.length;k++){
+ 156   3                                      i++;
+ 157   3                                      display(mysnake.position[k][0],mysnake.position[k][1]);
+ 158   3                              }
+ 159   2                              display(food_pos[0],food_pos[1]);
+ 160   2                              if(i>1500) return;
+ 161   2              }
+ 162   1              P1=0xff;
+ 163   1      }
+ 164          
+ 165          void create_food(){
+ 166   1              uchar i,j,k;   //i=col,j=row
+ 167   1              uchar ram;
+ 168   1              for(i=1;i<=8;i++){
+ 169   2                      for(j=1;j<=8;j++){
+ 170   3                              for(k=0;k<mysnake.length;k++){
+ 171   4                                      if(i!=mysnake.position[k][0] && j!=mysnake.position[k][1]){
+ 172   5                                              ram=rand()%50;
+*** WARNING C206 IN LINE 172 OF MAIN.C: 'rand': missing function-prototype
+ 173   5                                              if(ram>48){
+ 174   6                                                      food_pos[0]=i;
+ 175   6                                                      food_pos[1]=j;
+ 176   6                                                      return;
+C51 COMPILER V8.08   MAIN                                                                  01/31/2017 23:31:00 PAGE 4   
+
+ 177   6                                              }
+ 178   5                                      }
+ 179   4                              }
+ 180   3                      }
+ 181   2              }
+ 182   1              create_food();
+*** WARNING C265 IN LINE 182 OF MAIN.C: 'create_food': recursive call to non-reentrant function
+ 183   1      }
+ 184          
+ 185          
+ 186          //****************************************************
+ 187          //Ö÷º¯Êı
+ 188          //****************************************************
+ 189          void main()
+ 190          {
+ 191   1              uchar a; //50´ÎÊı¼ÆÊı
+ 192   1              uchar i,j,k;
+ 193   1              uchar data *pos;
+ 194   1              uchar lastsegment[2];
+ 195   1      
+ 196   1              mysnake.fangxiang=0x00;
+ 197   1              mysnake.length=2;
+ 198   1              mysnake.position[0][0]=4;       //col
+ 199   1              mysnake.position[0][1]=2;       //row
+ 200   1              mysnake.position[1][0]=4;
+ 201   1              mysnake.position[1][1]=1;
+ 202   1              pos=&mysnake.position[0][0];
+ 203   1      //      uchar ifexist_snake[8]; //Ã¿Ò»¸öucharÊÇÒ»ĞĞ
+ 204   1              create_food();
+ 205   1      //      ifexist_snake[mysnake.position[0][0]-1] 
+ 206   1      
+ 207   1              TR0 = 1;//Æô¶¯T0
+ 208   1              TMOD = 0x01;//T0Îª¶¨Ê±Æ÷£¬¹¤×÷Ä£Ê½1 16Î»¼ÆÊıÆ÷
+ 209   1              TH0 = 0x4b;
+ 210   1              TL0 = 0xfc;//0x4bfc     ¶¨Ê±50ms
+ 211   1      //      ram=rand()%60;
+ 212   1              init();
+ 213   1      //      unsigned int i;
+ 214   1      //      unsigned char j,k;
+ 215   1              while(1)
+ 216   1              {       j=0;
+ 217   2                      k=0;
+ 218   2      
+ 219   2      
+ 220   2                      if(IRok)    //ÅĞ¶ÏÂö¿íÊÇ·ñ¼ì²âÍê±Ï                    
+ 221   2                      {   
+ 222   3                              IRcordpro();//¸ù¾İÂö¿í½âÂë³ö4¸ö×Ö½ÚµÄÊı¾İ
+ 223   3                              IRok = 0;       //ÖØĞÂµÈ´ıÂö¿í¼ì²â
+ 224   3                              if(IRpro_ok) //ÅĞ¶ÏÊÇ·ñ½âÂëÍê±Ï  
+ 225   3                              {
+ 226   4                                      P1=0xfe;
+ 227   4                                      
+ 228   4                                      switch(IRcord[2]){
+ 229   5                                              case 0x18:mysnake.fangxiang=0x00;break; //shang
+ 230   5                                              case 0x5a:mysnake.fangxiang=0x10;break;  //zuo
+ 231   5                                              case 0x52:mysnake.fangxiang=0x01;break;
+ 232   5                                              case 0x08:mysnake.fangxiang=0x11;break;
+ 233   5                                      }
+ 234   4                                      IRpro_ok = 0;
+ 235   4                                      P1=0xff;
+ 236   4                              }
+ 237   3                      }
+C51 COMPILER V8.08   MAIN                                                                  01/31/2017 23:31:00 PAGE 5   
+
+ 238   2                              
+ 239   2      //              mysnake.refreshpos(mysnake);
+ 240   2      //              display_bycolandrow(mysnake.position[0][0],mysnake.position[0][1]);
+ 241   2      
+ 242   2                      lastsegment[0]=mysnake.position[mysnake.length-1][0];
+ 243   2                      lastsegment[1]=mysnake.position[mysnake.length-1][1];
+ 244   2                      for(i=mysnake.length-1;i>0;i--){  //´ÓµÚ¶ş½Úµ½×îºóÒ»½Ú
+ 245   3                              mysnake.position[i][0]=mysnake.position[i-1][0];
+ 246   3                              mysnake.position[i][1]=mysnake.position[i-1][1];
+ 247   3      
+ 248   3                      }
+ 249   2              
+ 250   2                      switch(mysnake.fangxiang){
+ 251   3                              case 0x00:      *pos=*(pos+2);*(pos+1)=*(pos+3)+1;break;
+ 252   3                              case 0x01:      *pos=*(pos+2);*(pos+1)=*(pos+3)-1;break;
+ 253   3                              case 0x10:      *pos=*(pos+2)+1;*(pos+1)=*(pos+3);break;
+ 254   3                              case 0x11:      *pos=*(pos+2)-1;*(pos+1)=*(pos+3);break;
+ 255   3                      }
+ 256   2       //¸Ä±äÉßµÄÎ»ÖÃ
+ 257   2      
+ 258   2                      if(mysnake.position[0][0]==food_pos[0] && mysnake.position[0][1]==food_pos[1]){
+ 259   3                              mysnake.position[mysnake.length][0]=lastsegment[0];
+ 260   3                              mysnake.position[mysnake.length][1]=lastsegment[1];
+ 261   3                              mysnake.length++;
+ 262   3                              create_food();
+ 263   3                              
+ 264   3                      }
+ 265   2      
+ 266   2                      delay();
+ 267   2      
+ 268   2              }               
+ 269   1      }
+*** WARNING C280 IN LINE 191 OF MAIN.C: 'a': unreferenced local variable
+ 270          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    635    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     77       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      3    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  3 WARNING(S),  0 ERROR(S)

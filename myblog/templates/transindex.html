@@ -1,0 +1,1735 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'waibao1/common.css' %}">
+</head>
+
+<body>
+    <div class="header d-none d-md-block">
+        <div class="fixnav">
+            <div class="topnav container">
+                <!--                 <div class="logo col-sm-2">
+                    logo
+                </div> -->
+                <div class="row">
+                    <div class="leftnav col-sm-5">
+                        <nav class="navbar navbar-expand-lg navbar-dark">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Member<span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Meeting</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Other Service</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="rightnav col-sm-5">
+                        <nav class="navbar navbar-expand-lg navbar-dark">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Become a member<span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Help</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Sign up</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Login</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{% static 'waibao1/header.png' %}" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{% static 'waibao1/header.png' %}" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{% static 'waibao1/header.png' %}" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <a class="searchbox">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="MEMBER NAME" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="WHERE" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="INDUSTRY" aria-label="Search">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="choice row">
+            <div class="leftnavbar col-sm-3 d-none d-lg-block">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">
+                            All Categories
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                            aria-selected="false">
+                            Meeting
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/1.png' %}" alt="logo"></div><a href="#" class="category">Bankinig
+                                & Financial Services</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/2.png' %}" alt="logo"></div><a href="#" class="category">Communications</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/3.png' %}" alt="logo"></div><a href="#" class="category">Creative
+                                and Entainment</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/4.png' %}" alt="logo"></div><a href="#" class="category">Education</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/5.png' %}" alt="logo"></div><a href="#" class="category">Energy
+                                & Utilities</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/6.png' %}" alt="logo"></div><a href="#" class="category">Government
+                                & Public Sector</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/7.png' %}" alt="logo"></div><a href="#" class="category">Healthcare</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/8.png' %}" alt="logo"></div><a href="#" class="category">Information
+                                Services</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/9.png' %}" alt="logo"></div><a href="#" class="category">Insurance</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/10.png' %}" alt="logo"></div><a href="#" class="category">Life
+                                Sciences</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/11.png' %}" alt="logo"></div><a href="#" class="category">Real
+                                Estate</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/12.png' %}" alt="logo"></div><a href="#" class="category">Retail
+                                & E-Commerce</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/13.png' %}" alt="logo"></div><a href="#" class="category">Technology</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/14.png' %}" alt="logo"></div><a href="#" class="category">Travel
+                                & Hospitality</a>
+                        </div>
+                        <div class="categorydiv">
+                            <div class="smalllogo"><img src="{% static 'waibao1/15.png' %}" alt="logo"></div><a href="#" class="category">Other
+                                Industries</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        ...
+                    </div>
+                </div>
+            </div>
+            <div class="analyst col-12 col-lg-9">
+                <div class="analysttitle">ANALYST' CHOICE</div>
+                <div class="choicewrapper row">
+                    <div class="choice col-12 col-sm-4">
+                        <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                        <div class="choicecontent">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                                labor and
+                                deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="choicefooter">
+                            <div class="learnmore"><a href="#">Learn More</a></div>
+                            <div class="messageme"><a href="#">Message Me</a></div>
+                        </div>
+                        <div class="coverall">
+                            <div class="content">
+                                <p class="name">Mr.Justin Austin</p>
+                                <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                    deligent,but labor and deligent,but labor and deligent,....</p>
+                            </div>
+                            <div class="footer">
+                                <div class="saved"><a href="#">Saved</a></div>
+                                <div class="download"><a href="#">Download</a></div>
+                                <div class="share"><a href="#">Share</a></div>
+                                <div class="messageme"><a href="#">Message</a></div>
+                            </div>
+                        </div>
+                        <div class="zan">
+                            <img src="{% static 'waibao1/zan.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="choice col-12 col-sm-4">
+
+                        <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                        <div class="choicecontent">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                                labor and
+                                deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="choicefooter">
+                            <div class="learnmore"><a href="#">Learn More</a></div>
+                            <div class="messageme"><a href="#">Message Me</a></div>
+                        </div>
+                        <div class="coverall">
+                            <div class="content">
+                                <p class="name">Mr.Justin Austin</p>
+                                <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                    deligent,but labor and deligent,but labor and deligent,....</p>
+                            </div>
+                            <div class="footer">
+                                <div class="saved"><a href="#">Saved</a></div>
+                                <div class="download"><a href="#">Download</a></div>
+                                <div class="share"><a href="#">Share</a></div>
+                                <div class="messageme"><a href="#">Message</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choice col-12 col-sm-4">
+                        <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                        <div class="choicecontent">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                                labor and
+                                deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="choicefooter">
+                            <div class="learnmore"><a href="#">Learn More</a></div>
+                            <div class="messageme"><a href="#">Message Me</a></div>
+                        </div>
+                        <div class="coverall">
+                            <div class="content">
+                                <p class="name">Mr.Justin Austin</p>
+                                <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                    deligent,but labor and deligent,but labor and deligent,....</p>
+                            </div>
+                            <div class="footer">
+                                <div class="saved"><a href="#">Saved</a></div>
+                                <div class="download"><a href="#">Download</a></div>
+                                <div class="share"><a href="#">Share</a></div>
+                                <div class="messageme"><a href="#">Message</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choice col-12 col-sm-4">
+                        <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                        <div class="choicecontent">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                                labor and
+                                deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="choicefooter">
+                            <div class="learnmore"><a href="#">Learn More</a></div>
+                            <div class="messageme"><a href="#">Message Me</a></div>
+                        </div>
+                        <div class="coverall">
+                            <div class="content">
+                                <p class="name">Mr.Justin Austin</p>
+                                <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                    deligent,but labor and deligent,but labor and deligent,....</p>
+                            </div>
+                            <div class="footer">
+                                <div class="saved"><a href="#">Saved</a></div>
+                                <div class="download"><a href="#">Download</a></div>
+                                <div class="share"><a href="#">Share</a></div>
+                                <div class="messageme"><a href="#">Message</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choice col-12 col-sm-4">
+                        <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                        <div class="choicecontent">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                                labor and
+                                deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="choicefooter">
+                            <div class="learnmore"><a href="#">Learn More</a></div>
+                            <div class="messageme"><a href="#">Message Me</a></div>
+                        </div>
+                        <div class="coverall">
+                            <div class="content">
+                                <p class="name">Mr.Justin Austin</p>
+                                <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                    deligent,but labor and deligent,but labor and deligent,....</p>
+                            </div>
+                            <div class="footer">
+                                <div class="saved"><a href="#">Saved</a></div>
+                                <div class="download"><a href="#">Download</a></div>
+                                <div class="share"><a href="#">Share</a></div>
+                                <div class="messageme"><a href="#">Message</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choice col-12 col-sm-4">
+                        <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                        <div class="choicecontent">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                                labor and
+                                deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="choicefooter">
+                            <div class="learnmore"><a href="#">Learn More</a></div>
+                            <div class="messageme"><a href="#">Message Me</a></div>
+                        </div>
+                        <div class="coverall">
+                            <div class="content">
+                                <p class="name">Mr.Justin Austin</p>
+                                <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                    deligent,but labor and deligent,but labor and deligent,....</p>
+                            </div>
+                            <div class="footer">
+                                <div class="saved"><a href="#">Saved</a></div>
+                                <div class="download"><a href="#">Download</a></div>
+                                <div class="share"><a href="#">Share</a></div>
+                                <div class="messageme"><a href="#">Message</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new">
+            <p class="newp">
+                NEW
+            </p>
+            <hr>
+            <div id="carouselExampleControls_new" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="choicewrapper row">
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="choicewrapper row">
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="choicewrapper row">
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="choicewrapper row">
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="choicewrapper row">
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="choice col-12 col-sm-4">
+                                <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                <div class="choicecontent">
+                                    <p class="name">Mr.Justin Austin</p>
+                                    <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                        deligent,but
+                                        labor and
+                                        deligent,but labor and deligent,....</p>
+                                </div>
+                                <div class="choicefooter">
+                                    <div class="learnmore"><a href="#">Learn More</a></div>
+                                    <div class="messageme"><a href="#">Message Me</a></div>
+                                </div>
+                                <div class="coverall">
+                                    <div class="content">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                            and
+                                            deligent,but labor and deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="saved"><a href="#">Saved</a></div>
+                                        <div class="download"><a href="#">Download</a></div>
+                                        <div class="share"><a href="#">Share</a></div>
+                                        <div class="messageme"><a href="#">Message</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls_new" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls_new" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="hot">
+            <p class="hotp">
+                HOT
+            </p>
+            <hr>
+            <div id="carouselExampleControls_hot" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="choicewrapper row">
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="choicewrapper row">
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="choicewrapper row">
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="choicewrapper row">
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="choicewrapper row">
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choice col-12 col-sm-4">
+                                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                                    <div class="choicecontent">
+                                        <p class="name">Mr.Justin Austin</p>
+                                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                            deligent,but
+                                            labor and
+                                            deligent,but labor and deligent,....</p>
+                                    </div>
+                                    <div class="choicefooter">
+                                        <div class="learnmore"><a href="#">Learn More</a></div>
+                                        <div class="messageme"><a href="#">Message Me</a></div>
+                                    </div>
+                                    <div class="coverall">
+                                        <div class="content">
+                                            <p class="name">Mr.Justin Austin</p>
+                                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor
+                                                and
+                                                deligent,but labor and deligent,but labor and deligent,....</p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="saved"><a href="#">Saved</a></div>
+                                            <div class="download"><a href="#">Download</a></div>
+                                            <div class="share"><a href="#">Share</a></div>
+                                            <div class="messageme"><a href="#">Message</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls_hot" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls_hot" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+        </div>
+        <div class="slideshow">
+            <div id="carouselExampleControls_1" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{% static 'waibao1/slide34.png' %}" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{% static 'waibao1/slide34.png' %}" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{% static 'waibao1/slide34.png' %}" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls_1" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls_1" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="featured">
+            <p class="featuredp">
+                Featured
+            </p>
+            <hr>
+            <div class="choicewrapper row">
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="slideshow2">
+            <div id="carouselExampleControls_2" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{% static 'waibao1/slide40.png' %}" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{% static 'waibao1/slide40.png' %}" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{% static 'waibao1/slide40.png' %}" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls_2" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls_2" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+        <div class="community">
+            <p class="communityp">
+                Community
+            </p>
+            <hr>
+            <div class="choicewrapper row">
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="choice col-12 col-sm-3">
+                    <div class="choiceimage"><img src="{% static 'waibao1/choiceimage.png' %}" alt=""></div>
+                    <div class="choicecontent">
+                        <p class="name">Mr.Justin Austin</p>
+                        <p class="contp">IT, Single, 35, in ShanghaiGenius is nothing but labor and deligent,but
+                            labor and
+                            deligent,but labor and deligent,....</p>
+                    </div>
+                    <div class="choicefooter">
+                        <div class="learnmore"><a href="#">Learn More</a></div>
+                        <div class="messageme"><a href="#">Message Me</a></div>
+                    </div>
+                    <div class="coverall">
+                        <div class="content">
+                            <p class="name">Mr.Justin Austin</p>
+                            <p class="description">IT, Single, 35, in ShanghaiGenius is nothing but labor and
+                                deligent,but labor and deligent,but labor and deligent,....</p>
+                        </div>
+                        <div class="footer">
+                            <div class="saved"><a href="#">Saved</a></div>
+                            <div class="download"><a href="#">Download</a></div>
+                            <div class="share"><a href="#">Share</a></div>
+                            <div class="messageme"><a href="#">Message</a></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <hr class="fenge">
+    <div class="container d-none d-lg-block">
+        <div class="footer">
+            <div class="member">
+                <h4>Member</h4>
+                <ul>
+                    <li><a href="">Banking & Financial Services</a></li>
+                    <li><a href="">Communications</a></li>
+                    <li><a href="">Creative and Entainment</a></li>
+                    <li><a href="">Education</a></li>
+                    <li><a href="">Energy & Uitilities</a></li>
+                    <li><a href="">Healthcare</a></li>
+                    <li><a href="">Information Services</a></li>
+                    <li><a href="">Insurance</a></li>
+                    <li><a href="">Life Sciences</a></li>
+                    <li><a href="">Manufacturing</a></li>
+                    <li><a href="">Media & Entertainment</a></li>
+                    <li><a href="">Real Estate</a></li>
+                    <li><a href="">Retail</a></li>
+                    <li><a href="">Technology</a></li>
+                    <li><a href="">Travel Hospitality</a></li>
+                </ul>
+            </div>
+            <div class="exmember">
+                <div class="meetotherabout">
+                    <div class="meeting">
+                        <h4>Meeting</h4>
+                        <ul>
+                            <li>Guidance</li>
+                            <li>Application</li>
+                        </ul>
+                    </div>
+                    <div class="services">
+                        <h4>Other Services</h4>
+                        <ul>
+                            <li>RFP</li>
+                            <li>Adivsor's Choice</li>
+                            <li>Safety Measures</li>
+                            <li>Help</li>
+                        </ul>
+                    </div>
+
+                    <div class="about">
+                        <h4>About Us</h4>
+                        <ul>
+                            <li>Who are We</li>
+                            <li>What we do</li>
+                            <li>How we do</li>
+                            <li>Careers</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="partlinktool">
+                    <div class="partners">
+                        <h4>Partners</h4>
+                        <ul>
+                            <li>Undetermined</li>
+                            <li>...</li>
+                            <li>...</li>
+                            <li>...</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+
+                    <div class="links">
+                        <h4>Links</h4>
+                        <ul>
+                            <li>Undetermined</li>
+                            <li>...</li>
+                            <li>...</li>
+                            <li>...</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+
+                    <div class="tools">
+                        <h4>Tools</h4>
+                        <li>RSS Feeds</li>
+                        <li>Add to Favourites</li>
+                        <li>Print this Page</li>
+                        <li>Email this Page</li>
+                        <li>Share this Page</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="beian">
+        <p>******** ���޹�˾.  All rights reserved.  Terms of Use User Guide Privacy Policy Disclaimer Sitemap</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'waibao1/common.js' %}"></script>
+</body>
+
+</html>

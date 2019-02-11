@@ -1,0 +1,146 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+C:\Users\songyf\Desktop\myproject\myOS\myOS.uv2
+Project File Date:  01/28/2017
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling myOS.c...
+MYOS.C(110): error C243: 'array[]': string out of bounds
+Target not created
+Build target 'Target 1'
+compiling myOS.c...
+MYOS.C(110): error C243: 'array[]': string out of bounds
+Target not created
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=30.0 xdata=0 code=486
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+MYOS.C(110): error C243: 'array[]': string out of bounds
+Target not created
+Build target 'Target 1'
+compiling myOS.c...
+MYOS.C(110): error C243: 'array[]': string out of bounds
+Target not created
+Build target 'Target 1'
+compiling myOS.c...
+MYOS.C(110): error C243: 'array[]': string out of bounds
+Target not created
+Build target 'Target 1'
+compiling myOS.c...
+MYOS.C(110): error C243: 'array[]': string out of bounds
+Target not created
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=30.0 xdata=0 code=486
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+MYOS.C(110): error C243: 'array[]': string out of bounds
+Target not created
+Build target 'Target 1'
+compiling myOS.c...
+MYOS.C(110): error C163: 'TestStr': unknown array size
+Target not created
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=46.0 xdata=0 code=502
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=46.0 xdata=0 code=502
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=46.0 xdata=0 code=502
+creating hex file from "myOS"...
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=46.0 xdata=0 code=502
+creating hex file from "myOS"...
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+MYOS.C(122): warning C206: 'delay': missing function-prototype
+MYOS.C(122): error C267: 'delay': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=47.0 xdata=0 code=577
+creating hex file from "myOS"...
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=47.0 xdata=0 code=577
+creating hex file from "myOS"...
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=47.0 xdata=0 code=577
+creating hex file from "myOS"...
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=81.0 xdata=0 code=645
+creating hex file from "myOS"...
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=81.0 xdata=0 code=647
+creating hex file from "myOS"...
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=81.0 xdata=0 code=652
+creating hex file from "myOS"...
+"myOS" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling myOS.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD1602_DIS_ONECHAR?MYOS
+Program Size: data=81.0 xdata=0 code=652
+creating hex file from "myOS"...
+"myOS" - 0 Error(s), 1 Warning(s).

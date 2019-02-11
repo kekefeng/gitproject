@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <span class="edit">编辑</span>
+    <span class="article_id">{{ article.id }}</span>
+    <h1>{{ article.title }}</h1>
+    <div class="article">
+        {{ content | safe }}
+    </div>
+    {% for comment in comments %}
+    <hr>
+    <div class="comment-display">
+            <span class="name">网友：{{ comment.name }} </span><span>评论时间：{{ comment.created_time }}</span>
+            <p class="content">评论内容：{{ comment.text }}</p>
+    </div>
+    {% endfor %}
+    <hr>
+    <section>
+            <form class="comment-form" onsubmit="return false;">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="{{ form.name.id_for_label }}">名字：</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="col-md-12">
+                            <label for="{{ form.comment.id_for_label }}">评论：</label>
+                            <textarea name="text" required="" id="id_text" placeholder="说点什么吧。。。"></textarea>
+                            <button type="submit" class="comment-btn">发表</button>
+                            <a id="successpost" style="display:none">发表成功！</a>
+                        </div>
+                    </div>    <!-- row -->
+                    <input name="blog" type="hidden" id="js-name" value="{{ article.id }}">
+            </form>
+    </section>
+{% endblock %}

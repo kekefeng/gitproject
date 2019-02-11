@@ -1,0 +1,157 @@
+body{
+    background-color: #f5f3ff;
+    padding:15px;
+    border-top:#222 10px solid;
+}
+
+ul li span.hello{
+    margin-right: 5px; 
+    line-height: 40px;
+
+}
+
+.newarticle{
+    padding: 5px 16px;
+    border: none;
+    color: #fff;
+    background-color: #ca0c16;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+ul{
+    list-style-type:none;
+}
+
+div.pagination ul{
+    display: flex;
+    align-items: center;
+}
+
+div.pagination ul li{
+    height: 30px;
+    width: 30px;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+
+div.pagination ul li.active{
+    background-color: red;
+    border-radius: 2px;
+}
+
+div.pagination ul li.prev-page{
+    margin-right: 20px;
+}
+
+ul.list-group li a{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+}
+
+ul.nav-tabs{
+    border-bottom: 1px solid green
+}
+
+a {
+    color:black;    
+}
+
+h4 a:hover {
+    color:black;
+    text-shadow:0 0 1px #000;
+    text-decoration:none
+}
+
+textarea #comment{
+    width:100%;
+}
+
+
+.flex {
+    display: flex;
+    align-items: center;
+   /*  flex-direction: row; */
+
+}
+
+.touxiang{
+    width: 100px;
+    height: 100px;
+}
+
+.zuoyouming{
+    width: 100%;
+    height: 50px;
+    font-size:16px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.touxiangright{
+    width: 100%;
+    height: 100px;
+    flex-direction: column;
+}
+
+.navbox{
+    display:flex;
+    justify-content: space-between;
+}
+
+
+a.weixin, a.qq{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 20px;
+}
+
+.weixin img.qrcode, .qq img.qrcode{
+    position: absolute;
+    z-index: 99;
+    top: 50px;
+    right: 0px;
+    width: 250px;
+    transform: scale(0);
+    transform-origin: top right;
+    opacity: 0;
+    border-radius: .25rem;
+    -webkit-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.weixin img.wecharheight{
+    height: 250px;
+}
+
+.qq img.qqheight{
+    height: 300px;
+}
+
+.weixin:hover img.qrcode , .qq:hover img.qrcode{
+    transform: scale(1);
+    opacity: 1;
+}
+
+.weixinlogo , .qqlogo{
+    width: 50px;
+    height: 50px;
+}
+
+.contactme{
+    display:flex;
+    align-items: center;
+}
+
+.article_id{
+    display:none;
+}

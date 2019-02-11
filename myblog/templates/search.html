@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="breadcrumb">您的位置： <a itemprop="breadcrumb" href="{% url 'index' %}">首页</a> » 
+    <span class="current">关键词：{{ ss }}</span></div>
+    {% include 'list.html' %}
+{% endblock %}

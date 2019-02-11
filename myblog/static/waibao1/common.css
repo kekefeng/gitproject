@@ -1,0 +1,410 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+a:hover,
+a:active,
+a:visited {
+ text-decoration: none;
+}
+
+hr{
+    height: 1px;
+    background-color: #eeeeee;
+    margin-top: 0;
+}
+
+/* div.header{
+    width: 100%;
+    height: 480px;
+    background-image: url(header.png);
+    background-size: 100% 100%;
+} */
+
+a.searchbox{
+    background:white;
+    position: absolute;
+    top:60%;
+    left:50%;
+    margin-left: -350px;
+}
+
+form.form-inline{
+    flex-wrap:nowrap;
+}
+
+div.fixnav{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    background-color: rgba(0,0,0,0.1);
+    z-index: 99;
+}
+
+div.fixnav .container{
+    margin-top:0;
+}
+
+div.fixnav .container .row{
+    justify-content: space-between;
+}
+
+div.fixnav .rightnav .navbar-collapse{
+    justify-content: flex-end;
+}
+
+div.header .bgcolor{
+    background: black;
+}
+
+div.header div.fixnav div.topnav .navbar{
+    padding: 0;
+}
+
+div.header div.fixnav div.topnav li{
+    padding: 10px 0;
+}
+
+div.header div.fixnav div.topnav li:hover{
+    background-color: #ce3f51;
+}
+
+
+/* 第二部分 */
+div.container{
+    margin-top:30px;
+    max-width: 1080px;
+}
+
+
+.leftnavbar a{
+    color: black;
+}
+
+.leftnavbar ul#myTab li{
+    flex:1;
+}
+
+.leftnavbar ul#myTab li a{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align:center;
+    background-color: #eeeeee;
+    height: 55px;
+    line-height: 37px;
+}
+
+.leftnavbar ul#myTab li a.active{
+    background: #ce3f51;
+    color: white;
+    border-radius: 0px;
+}
+
+.leftnavbar div.categorydiv{
+    background-color: #f8f9f9;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.leftnavbar div.categorydiv .smalllogo{
+    position: relative;
+    content:"";
+    display:inline-block;
+    width:25px;
+    height:26px;
+    margin-left: 6px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.leftnavbar div.smalllogo img{
+    position: absolute;
+}
+
+.leftnavbar div.tab-content a{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.leftnavbar div.tab-content a:hover{
+    color: red;
+}
+
+div.analysttitle{
+    height: 55px;
+    line-height: 55px;
+    font-weight: bolder;
+}
+
+.choicewrapper .choice{
+    box-sizing: border-box;
+    height: 370px;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 2px 0;
+}
+
+.choicewrapper .choice .choiceimage{
+    height: 150px;
+    border-radius: 1px;
+    overflow: hidden;
+    margin: 5px;
+}
+
+.choicewrapper .choice .choiceimage img{
+    width: 100%;
+}
+
+.choicewrapper .choice .choicecontent{
+    overflow: hidden;
+    height: 130px;
+    padding: 0 20px 0 30px;
+    font-size: 14px;
+}
+
+.choicewrapper .choice .choicecontent .name{
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.choicewrapper .choice .choicecontent p.contp{
+    text-indent: 1em;
+}
+
+
+.choicewrapper .choice .choicefooter{
+    width: 100%;
+    height: 30px;
+    z-index: 4;
+    padding: 20px 10px 0;
+    display:flex;
+    justify-content: space-between;
+}
+
+.choicewrapper .choice .choicefooter .learnmore,.choicewrapper .choice .choicefooter .messageme{
+    display: flex;
+    height: 30px;
+}
+
+.choicewrapper .choice .choicefooter .learnmore::before{
+    content:"";
+    display:inline-block;
+    width:23px;
+    height:24px;
+    background-image: url(LearnMore.png);
+    background-size: 100% 100%;
+}
+
+.choicewrapper .choice .choicefooter .messageme a{
+    color:black;
+}
+
+.choicewrapper .choice .choicefooter .messageme a:hover{
+    color:black;
+}
+
+.choicewrapper .choice .choicefooter .messageme::before{
+    content:"";
+    display:inline-block;
+    width:23px;
+    height:24px;
+    background-image: url(MessageMe.png);
+    background-size: 100% 100%;
+}
+
+.choicewrapper .choice .zan{
+    position: absolute;
+    top:25px;
+    right:0;
+    opacity: 0.9;
+}
+
+.choicewrapper .choice .coverall{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top:50px;
+    padding: 15px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    opacity: 0.9;
+    z-index: 5;
+}
+
+.choice .coverall .saved,.choice .coverall .download,.choice .coverall .share,.choice .coverall .messageme{
+    display: flex;
+    height: 30px;
+    align-items: center;
+}
+
+.choicewrapper .choice .coverall .saved::before{
+    flex:1;
+    content:"";
+    display:inline-block;
+    width:23px;
+    height:24px;
+    background-image: url(Saved.png);
+    background-size: 100% 100%;
+}
+
+
+@media screen and (min-width:1080px){
+    .choicewrapper .choice .coverall .download{
+        flex:2;
+    }
+    .choicewrapper .choice .coverall .messageme{
+        flex:3;
+    }
+    .choicewrapper .choice .coverall .footer{
+        display: flex;
+        height: 30px;
+        margin-left: -10px;
+        font-size: 12px;
+    }
+}
+
+
+.choicewrapper .choice .coverall .download::before{
+    content:"";
+    display:inline-block;
+    width:23px;
+    height:24px;
+    background-image: url(Download.png);
+    background-size: 100% 100%;
+}
+
+.choicewrapper .choice .coverall .share::before{
+    content:"";
+    display:inline-block;
+    width:23px;
+    height:24px;
+    background-image: url(Share.png);
+    background-size: 100% 100%;
+}
+
+
+.choicewrapper .choice .coverall .messageme::before{
+    content:"";
+    display:inline-block;
+    width:23px;
+    height:24px;
+    background-image: url(MessageMe.png);
+    background-size: 100% 100%;
+}
+
+
+.choicewrapper .choice:hover{
+    box-shadow: 3px 6px 10px #888888;
+}
+
+/* .choicewrapper .choice:hover .coverall{
+    bottom: 0;
+} */
+
+.choicewrapper .choice .description{
+    text-indent: 2em;
+}
+
+
+
+
+/* new hot feature community block */
+div.new, div.hot, div.featured, div.community{
+    padding: 30px 0 0 0;
+}
+
+p.newp, p.hotp, p.featuredp, p.communityp{
+    margin: 0;
+    font-weight: bolder;
+}
+
+div.new .choicewrapper, div.hot .choicewrapper, div.featured .choicewrapper, div.community .choicewrapper{
+    padding: 0 20px;
+}
+
+
+/* new and hot big div */
+div.new .choicewrapper .choice, div.hot .choicewrapper .choice{
+    height: 420px;
+}
+
+div.new .choicewrapper .choice .choiceimage, div.hot .choicewrapper .choice .choiceimage{
+    height: 200px;
+}
+
+div.new .choice .coverall .footer, div.hot .choice .coverall .footer{
+    display: flex;
+    height: 30px;
+    font-size: 16px;
+}
+
+
+
+
+div.slideshow, div.slideshow2{
+    padding: 30px 20px 20px;
+}
+
+.slideshow img, .slideshow2 img{
+    height:auto;
+    width: 100%;
+}
+
+
+/* yejiao */
+hr.fenge{
+    background-color: #ce3f51;
+    height: 3px;
+    margin: 50px 0px 20px;
+}
+
+.footer{
+    display:flex;
+}
+
+.footer li{
+    list-style: none;
+}
+
+.container>.footer a{
+    color:black;
+}
+
+.footer .member{
+    flex:1;
+}
+
+.footer .exmember{
+    flex:3;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .exmember .meetotherabout{
+    display: flex;
+}
+
+.footer .exmember .meetotherabout div{
+    flex:1;
+}
+
+.footer .exmember .partlinktool{
+    display: flex;
+}
+
+.footer .exmember .partlinktool div{
+    flex:1;
+}
+
+.beian{
+    margin-top: 50px;
+    text-align: center;
+}

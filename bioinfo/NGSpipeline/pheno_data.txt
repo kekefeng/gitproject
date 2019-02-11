@@ -1,0 +1,7 @@
+id	group
+BM_GFP	1
+Ctrl	2
+M9_D11	3
+M9_D19	4
+VCR_D13	1
+VCR_D8	2
